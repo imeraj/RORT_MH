@@ -22,6 +22,13 @@ group :development do
   gem 'mysql2',                '0.4.5'
 end
 
+group :test do
+  gem 'rails-controller-testing'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
+end
+
 group :production do
   gem 'pg'
 end
