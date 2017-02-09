@@ -15,5 +15,6 @@ module SampleApp
 
     config.middleware.use('DeltaLogger', '*')
     config.log_formatter = DeltaFormatter.new
+    config.sign_out_via = :delete
   end
 end
