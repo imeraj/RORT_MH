@@ -23,6 +23,11 @@ class User < ApplicationRecord
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
 
+    # forgets a user
+    def forget
+        update_attribute(:remember_digest, nil)
+    end
+
     class << self
         # returns the hash digest of the given string
         def digest(string)
