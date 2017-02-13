@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       if !user
-        flash.now[:danger] = 'Invalid email'
+        flash.now[:danger] = 'User not found with this email address'
       else
         flash.now[:danger] = 'Invalid password'
       end
