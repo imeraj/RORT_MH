@@ -10,7 +10,8 @@
 	  <%= link_to user.name, user %>
 	  <% if current_user.admin? && !current_user?(user) %>
 	  <% unless user.admin? %>
-	  	<%= button_to 'Delete', user , method: :delete, data: { confirm: 'Are you sure?'} %>
+	  	<%= button_to 'Delete', user, method: :delete, :class => "btn btn-danger",
+		 		:data => {:confirm => "Are you sure?" } %>
  	  <% end %>	  <% end %>	</li>
   <% end %>
 </ul>
