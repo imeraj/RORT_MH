@@ -13,7 +13,7 @@
                 Account <b class="caret"></b></button>
               <div id="myDropdown" class="dropdown-content">
                      <%= link_to "Profile", current_user %>
-                    <%= link_to "Settings", '#' %>
+                    <%= link_to "Settings", edit_user_path(current_user) %>
                     <%= link_to "Log out", logout_path, method:"delete" %>
               </div>
             </div>

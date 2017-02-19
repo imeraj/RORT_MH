@@ -10,7 +10,8 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: true }
 
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
+ 
 
     # remembers a user in the database for use in persistent sessions
     def remember
