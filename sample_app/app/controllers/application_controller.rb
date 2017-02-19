@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def authenticate
-    if !logged_in?
+    unless logged_in?
+	  store_location	
+	  flash[:danger] = "Please log in."
       redirect_to root_url
     end
   end
