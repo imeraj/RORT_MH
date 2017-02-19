@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate, :only => ["show", "edit", "update"]
+  before_action :authenticate, :only => ["show", "edit", "update", "index"]
   before_action :correct_user, :only => ["edit", "update"]
 
   def new
     @user = User.new
+  end
+
+  def index
+	  @users = User.all
   end
 
   def show
