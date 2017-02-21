@@ -59,6 +59,10 @@ class User < ApplicationRecord
 		self.reset_sent_at < 2.hours.ago
 	end
 
+	def feed
+		microposts
+	end
+
     class << self
         # returns the hash digest of the given string
         def digest(string)
