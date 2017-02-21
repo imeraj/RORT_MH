@@ -1,20 +1,5 @@
-<% if logged_in? %>
-	<div class="row">
-		<aside class="col-md-4">
-			<section class="user_info">
-				<%= render 'shared/user_info' %>
-			</section>
-			<section class="micropost_form">
-			</aside>
-			<%= render 'shared/micropost_form' %>
-		</section>
-	</div>
-	<div class="col-md-8">
-		<h3>Micropost Feed</h3>
-		<%= render 'shared/feed' %>
- 	</div>
-<% else %>
-	<div class="center jumbotron">
+
+<div class="center jumbotron">
   	<h1>Welcome to the Sample App</h1>
 	<h2>
     	This is the home page for the
@@ -27,4 +12,3 @@
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'http://rubyonrails.org/' %>
-<% end %>
