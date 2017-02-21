@@ -8,6 +8,15 @@
          	</h1>
 			</section>
       </aside>
+	  <% if logged_in? %>
+	  	<div class="row">
+	  		<aside class="col-md-4">
+	  			<section class="micropost_form">
+	  			</aside>
+	  			<%= render 'shared/micropost_form' %>
+	  		</section>
+	  	</div>
+		<% end %>
 	  <div class="col-md-8">
 		  <% if @user.microposts.any? %>
 		  <h3></a>Microposts (<%= @user.microposts.count %>)</h3>

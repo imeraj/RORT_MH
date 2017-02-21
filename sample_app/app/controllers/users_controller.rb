@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 	@microposts = @user.microposts.paginate(page: params[:page])
+
+	if logged_in?
+		@micropost = current_user.microposts.build
+		@feed_items = current_user.feed.paginate(page: params[:page])
+    end
       # break into byebug
       # debugger
   end
@@ -51,11 +56,6 @@ class UsersController < ApplicationController
 	  end
 	  redirect_to users_url
   end
-
-  def feed
-	  microposts
-  end
-
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
