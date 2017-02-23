@@ -34,8 +34,8 @@ class Micropost < ApplicationRecord
 	         }
 	       },
 	       highlight: {
-	         pre_tags: ['<em>'],
-	         post_tags: ['</em>'],
+	         pre_tags: ['<hi>'],
+	         post_tags: ['</hi>'],
 	         fields: {
 	           content: {}
 	         }
