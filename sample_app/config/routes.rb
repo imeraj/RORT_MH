@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   post    '/login',      to: 'sessions#create'
   get     '/logout',     to: 'sessions#destroy'
 
+  get 'search', to: 'search#search'
+
   resources :users do
   	member do
   		get :following, :followers
   	end
   end
-
 
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+	include Elasticsearch::Model
+	include Elasticsearch::Model::Callbacks
+
 	has_many :microposts, dependent: :destroy
 	has_many :active_relationships,  class_name: "Relationship",
 									 foreign_key: "follower_id",

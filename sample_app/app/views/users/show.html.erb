@@ -20,7 +20,15 @@
 			</aside>
 	  	</div>
 		<% end %>
-	  <div class="col-md-8">
+
+		<%= form_for :term, url: search_path, method: :get do |form| %>
+  		<p>
+    		<%= text_field_tag :term, params[:term] %>
+    		<%= submit_tag "Search", name: nil %>
+  		</p>
+		<% end %>
+
+	   <div class="col-md-8">
 		  <%= render 'follow_form' if logged_in? %>
 		  <% if @feed_items.any? %>
 		       <ol class="microposts">

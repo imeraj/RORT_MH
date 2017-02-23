@@ -65,11 +65,26 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
+    elasticsearch (5.0.3)
+      elasticsearch-api (= 5.0.3)
+      elasticsearch-transport (= 5.0.3)
+    elasticsearch-api (5.0.3)
+      multi_json
+    elasticsearch-model (0.1.9)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.9)
+    elasticsearch-transport (5.0.3)
+      faraday
+      multi_json
     erubis (2.7.0)
     excon (0.55.0)
     execjs (2.7.0)
     faker (1.7.3)
       i18n (~> 0.5)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -214,6 +229,7 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    hashie (3.5.3)
     i18n (0.8.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
@@ -246,6 +262,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     mysql2 (0.4.5)
     nenv (0.3.0)
     nio4r (1.2.1)
@@ -354,6 +371,8 @@ DEPENDENCIES
   byebug (= 9.0.6)
   carrierwave
   coffee-rails (= 4.2.1)
+  elasticsearch-model
+  elasticsearch-rails
   faker
   fog
   guard
