@@ -37,11 +37,7 @@ class Micropost < ApplicationRecord
 	         pre_tags: ['<em>'],
 	         post_tags: ['</em>'],
 	         fields: {
-	           id: {},
-	           content: {},
-			   picture: {},
-			   created_at: {},
-			   user: {}
+	           content: {}
 	         }
 	       }
 	     }

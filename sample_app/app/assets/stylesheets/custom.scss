@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+em {
+  background: yellow;
+}
+
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
 
