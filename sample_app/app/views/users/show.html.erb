@@ -48,8 +48,8 @@
       encrypted: true
     });
 
-    var channel = pusher.subscribe('miniTwitter-channel');
-    channel.bind("miniTwitter-" + "<%= @current_user.name %>" + "-event", function(data) {
+	var channel = pusher.subscribe("miniTwitter-" + "<%= @current_user.name %>" + "-channel");
+    channel.bind("miniTwitter-event", function(data) {
 			alert(data.message);
     });
   </script>

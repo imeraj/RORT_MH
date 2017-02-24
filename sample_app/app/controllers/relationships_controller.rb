@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
 	def create
 		user = User.find(params[:followed_id])
 		current_user.follow(user)
-		Pusher.trigger('miniTwitter-channel', "miniTwitter-#{user.name}-event", {
+		Pusher.trigger("miniTwitter-#{user.name}-channel", "miniTwitter-event", {
       		message: "#{current_user.name} is following you!"
     	})
 		redirect_to user
