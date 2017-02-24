@@ -60,7 +60,6 @@
 
 	var presence = pusher.subscribe("presence-miniTwitter");
 	presence.bind('pusher:subscription_succeeded', function(data) {
-		console.log('subscription_succeeded');
 		presence.bind("user_logged_in", function(data) {
 				alert(data.message + " logged in!");
 			});

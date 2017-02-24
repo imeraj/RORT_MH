@@ -3,6 +3,7 @@ require "json"
 require "openssl"
 
 class PusherController < ApplicationController
+    skip_before_filter :verify_authenticity_token
     before_action :authenticate
 
     def auth

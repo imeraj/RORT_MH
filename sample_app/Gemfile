@@ -19,6 +19,7 @@ gem 'fog'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'pusher'
+gem 'inch', require: false
 
 group :development, :test do
   gem 'sqlite3',  '1.3.13'
