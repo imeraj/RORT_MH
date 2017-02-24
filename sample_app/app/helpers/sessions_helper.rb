@@ -1,7 +1,21 @@
+require 'pusher'
+
 module SessionsHelper
+    @@pusher = Pusher::Client.new(
+                app_id: Pusher.app_id,
+                key: Pusher.key,
+                secret: Pusher.secret,
+                encrypted: true,
+                authTransport: 'jsonp'
+                )
+
     # log in current user
     def log_in(user)
         session[:user_id] = user.id
+
+        @@pusher.trigger('presence-miniTwitter', 'user_logged_in', {
+      		message: "#{current_user.name}"
+    	})
     end
 
     # forget a persistent session
@@ -13,6 +27,9 @@ module SessionsHelper
 
     # log out current user
     def log_out
+        @@pusher.trigger('presence-miniTwitter', 'user_logged_out', {
+            message: "#{current_user.name}"
+        })
         forget(current_user)
         session.delete(:user_id)
         @current_user = nil

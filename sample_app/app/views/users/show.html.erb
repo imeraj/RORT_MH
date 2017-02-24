@@ -40,16 +40,37 @@
 </div>
 <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
   <script>
+	var pusher = new Pusher('ce88be7709ffe9b382ea', {
+  		authEndpoint: '/pusher/auth',
+		authTransport: 'jsonp',
+  		auth: {
+			headers: {
+	  		'X-CSRF-Token': "<%= form_authenticity_token %>"
+		}
+  	}
+	});
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
-
-    var pusher = new Pusher('ce88be7709ffe9b382ea', {
-      encrypted: true
-    });
 
 	var channel = pusher.subscribe("miniTwitter-" + "<%= @current_user.name %>" + "-channel");
     channel.bind("miniTwitter-event", function(data) {
 			alert(data.message);
     });
+
+	var presence = pusher.subscribe("presence-miniTwitter");
+	presence.bind('pusher:subscription_succeeded', function(data) {
+		console.log('subscription_succeeded');
+		presence.bind("user_logged_in", function(data) {
+				alert(data.message + " logged in!");
+			});
+		presence.bind("user_logged_out", function(data) {
+					alert(data.message + " logged out!");
+		});
+	});
+
+	presence.bind('pusher:subscription_error', function(status) {
+		console.log('subscription_error - ' + status)
+	});
+
   </script>

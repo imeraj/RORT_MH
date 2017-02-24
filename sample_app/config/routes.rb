@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   post    '/login',      to: 'sessions#create'
   get     '/logout',     to: 'sessions#destroy'
 
-  get 'search', to: 'search#search'
+  get '/search', to: 'search#search'
+
+  get '/pusher/auth', to: 'pusher#auth'
+  post '/pusher/auth', to: 'pusher#auth'
+
 
   resources :users do
   	member do
